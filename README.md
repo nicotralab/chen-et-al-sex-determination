@@ -178,7 +178,7 @@ $ removeDistorted.pl --vcf GATKBP-passed.femaleHet.abxabRemoved.vcf \
 
 These were then thinned to 1 variant per 5 kb and converted from .vcf to OneMap's with vcftools and command line tools via [thin-for-onemap.v2.sh](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/thin-for-onemap.v2.sh).
 
-The resulting files were [femalePT.5kb.raw](url) and [malePT.5kb.raw](url) and are also provided as supplemental datasets in Chen et al. 
+The resulting files were [femalePT.5kb.raw](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/femalePT.5kb.raw) and [malePT.5kb.raw](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/malePT.5kb.raw) and are also provided as supplemental datasets in Chen et al. 
 
 
 
