@@ -1,4 +1,5 @@
-# This script was modified by matt nicotra to deal with an error caused by values of AD for which there was not data (i.e. a "." instead of "number,number"
+# This script was written by Justin Paschall of the NHGRI at NIH.
+# This script was modified by Matt Nicotra to deal with an error caused by values of AD for which there was not data (i.e. a "." instead of "number,number"
 # Specifically, we added an if than statement to reject variants for which this was true.
 # Takes as input a file in VCF format and outputs each line from that file after removing genotypes that do not meet filtering criteria.
 
