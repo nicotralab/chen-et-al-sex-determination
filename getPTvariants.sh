@@ -1,31 +1,29 @@
 #!/bin/bash
 
+# This was tested on linux.
+
 # In our dataset, the female parent is in column 100 of the VCF file 
 # and the male parent is in column 101 of the VCF file. 
+
+
 
 # CREATE FILES OF "aa x ab", "ab x aa", or "ab x ab" VARIANTS
 awk '$100~/0\/1/ && $101~/0\/0/ {print}' GATKBP-passed.vcf > GATKBP-passed.femaleHetMale00.txt
 awk '$100~/0\/0/ && $101~/0\/1/ {print}' GATKBP-passed.vcf > GATKBP-passed.maleHetFemale00.txt
 awk '$100~/1\/1/ && $101~/0\/1/ {print}' GATKBP-passed.vcf > GATKBP-passed.maleHetFemale11.txt
-#awk '$100~/0\/1/ && $101~/1\/1/ {print}' GATKBP-passed.vcf > GATKBP-passed.femaleHetMale11.txt
-#awk '$100~/0\/1/ && $101~/0\/1/ {print}' GATKBP-passed.vcf > GATKBP-passed.bothHet.txt
 
-
-# reattach the header
+# The files created above do not have a vcf header.
+# To reattach the header
 grep '^#' GATKBP-passed.vcf > GATKBP-passed.vcf.header.txt
 cat GATKBP-passed.vcf.header.txt GATKBP-passed.femaleHetMale00.txt > GATKBP-passed.femaleHetMale00.vcf
 cat GATKBP-passed.vcf.header.txt GATKBP-passed.maleHetFemale00.txt > GATKBP-passed.maleHetFemale00.vcf
 cat GATKBP-passed.vcf.header.txt GATKBP-passed.maleHetFemale11.txt > GATKBP-passed.maleHetFemale11.vcf
-#cat GATKBP-passed.vcf.header.txt GATKBP-passed.femaleHetMale11.txt > GATKBP-passed.femaleHetMale11.vcf
-#cat GATKBP-passed.vcf.header.txt GATKBP-passed.bothHet.txt > GATKBP-passed.bothHet.vcf
-rm GATKBP-passed.femaleHet*.txt GATKBP-passed.maleHet*.txt # GATKBP-passed.bothHet.txt
+rm GATKBP-passed.femaleHet*.txt GATKBP-passed.maleHet*.txt 
 
 # calculate statistics for each dataset
 bcftools stats -s - GATKBP-passed.femaleHetMale00.vcf > GATKBP-passed.femaleHetMale00.vcf.STATS
 bcftools stats -s - GATKBP-passed.maleHetFemale00.vcf > GATKBP-passed.maleHetFemale00.vcf.STATS
 bcftools stats -s - GATKBP-passed.maleHetFemale11.vcf > GATKBP-passed.maleHetFemale11.vcf.STATS
-#bcftools stats -s - GATKBP-passed.femaleHetMale11.vcf > GATKBP-passed.femaleHetMale11.vcf.STATS
-#bcftools stats -s - GATKBP-passed.bothHet.vcf > GATKBP-passed.bothHet.vcf.STATS
 
 # now assess how many impossible genotypes are present:
 #
