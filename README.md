@@ -189,19 +189,18 @@ The resulting files were [femalePT.5kb.raw](https://github.com/nicotralab/chen-e
 #### Linkage mapping in OneMap
 
 R was run in R studio. Each linkage map (paternal and maternal) was created in a separate Rstudio project:
-- fd
-- fdf
+- [Rstudio-femaleMap](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/Rstudio-femaleMap.zip)
+- [Rstudio-maleMap](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/Rstudio-maleMap.zip)
 
-A full description of the analysis is documented in the R script create_maps.r, which is provided in the project folder.
+A full description of the analysis is documented in the R script `create_maps.r`, which is provided in the project folder.
 
-Note that part of the analysis must be run with the perl scripts [identify_redundant_markers.pl](ref), [unbin_markers_in_map.pl](ref), and [calculate_unbinned_map_statistics.pl](url). 
+Note that part of the analysis must be run with the perl scripts [identify_redundant_markers.pl](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/identify_redundant_markers.pl), [unbin_markers_in_map.pl](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/unbin_markers_in_map.pl), and [calculate_unbinned_map_statistics.pl](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/calculate_unbinned_map_statistics.pl). 
 
 
 ## QTL analysis
 
-Loci linked to sex were identified in R using R/qtl. The entire analysis can be recreated by downloading the Rstudio project.
+Loci linked to sex were identified in R using R/qtl. The entire analysis can be recreated by downloading the Rstudio project and following the R script `QTLanalysis_binaryTraits.R`
 
-The input data file for 
 
 
 
