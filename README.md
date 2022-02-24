@@ -1,11 +1,13 @@
 ## Overview
 
-This document describes how we generated linkage maps of the _Hydractinia symbiolongicarpus_ genome and used them to identify sex-linked markers. 
+This document describes how we generated linkage maps of the _Hydractinia symbiolongicarpus_ genome and used them to identify sex-linked markers. It provides more detail, scripts, and large files that we could not include as supplemental data in the original publication.
+
+In theory, you should be able to replicate our analysis perfectly. However, the details of running each analysis tool may differ depending on your platform and version. 
 
 
 ## Sequencing
 
-1. The paternal genome assembly can be downloaded at **[TODO: add link to paternal genome](url)**. 
+1. The paternal genome assembly can be downloaded at **TODO: add link to paternal genome**. 
 
 2. Male parent 291-10 was previously sequenced to high coverage. To generate a dataset of coverage equivalent to that obtained for the female parent and F1 progeny, we downsampled the original files (**TODO: add link to SRA for paternal genome files**) with seqtk as follows:
 
@@ -16,9 +18,9 @@ This document describes how we generated linkage maps of the _Hydractinia symbio
    
    ```
 
-    The downsampled files can be downloaded from Figshare at: **TODO: upload data and add link**
+    The downsampled files can be downloaded from **TODO: upload data and add link**
 
-3. Female parent 295-8 and F1 progeny were sequenced  as described in the paper. Sequences can be downloaded from the SRA at **TODO: upload data and add link**
+3. Female parent 295-8 and F1 progeny were sequenced as described in the paper. Sequences can be downloaded from the SRA at **TODO: upload data and add link**
 
 
 
@@ -103,7 +105,7 @@ This document describes how we generated linkage maps of the _Hydractinia symbio
 
 
 
-5. File ```rawvariants.90f1.vcf``` contains genotypes for all samples, including both parents in .vcf format. This file can be downloaded from [Zenodo](). 
+5. File ```rawvariants.90f1.vcf``` contains genotypes for all samples, including both parents in .vcf format. This file can be downloaded from **TODO: upload file and provide link**. 
 
 
 
@@ -127,7 +129,7 @@ We first used a custom python script [qualityfilter.py](https://github.com/nicot
 
 After custom filtering, we filtered variants according to GATK best practices. The process is outlined in the bash script [filterbyGATKBP.sh](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/filterbyGATKBP.sh). 
 
-The output of this step is a file called ```GATKBP-passed.vcf```. It can be downloaded from [Zenodo](link)
+The output of this step is a file called ```GATKBP-passed.vcf```. It can be downloaded from **TODO: upload and add link**
 
 
 
@@ -135,7 +137,7 @@ The output of this step is a file called ```GATKBP-passed.vcf```. It can be down
 
 ## Identifying Pseudotestcross Variants
 
-Next, we extracted variants (SNPs and indels) from ```GATKBP-passed.vcf``` that would meet the criteria for a pseudotestcross. The script is:
+Next, we extracted variants (SNPs and indels) from ```GATKBP-passed.vcf``` that would meet the criteria for a pseudotestcross. The approach was to:
 
 1. Extract variants with the correct genotype (i.e. heterozygous in one parent and homozygous in the other)
 2. Identify and remove variants at which some animals have "unexpected" genotypes. These are
@@ -145,7 +147,7 @@ Next, we extracted variants (SNPs and indels) from ```GATKBP-passed.vcf``` that 
 
 This was achieved with the bash script [getPTvariants.sh](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/getPTvariants.sh).
 
-The resulting datafiles, `GATKBP-passed.maleHet.abxabRemoved.vcf` and `GATKBP-passed.femaleHet.abxabRemoved.vcf` can be downloaded from [Zenodo](url.)
+The resulting datafiles, `GATKBP-passed.maleHet.abxabRemoved.vcf` and `GATKBP-passed.femaleHet.abxabRemoved.vcf` can be downloaded from **TODO upload file and provide link**
 
 
 
