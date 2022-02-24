@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# this will likely be specific to your system
-module load picard gatk/3.8.1 gcc/8.2.0 bcftools vcftools samtools
+# this assumes you have the following tools on your system
+# picard 
+# gatk (we used version 3.8.1)
+# bcftools 
+# vcftools 
+# samtools
 
 # CREATE FASTA INDEX
 printf "*\n*\n*\nNow creating FASTA index with samtools faidx\n"
