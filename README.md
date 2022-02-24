@@ -1,12 +1,13 @@
 ## Overview
 
-This document describes 
+This document describes how we generated linkage maps of the _Hydractinia symbiolongicarpus_ genome and used them to identify sex-linked markers. 
+
 
 ## Sequencing
 
-1. The paternal genome assembly can be downloaded at [link to paternal genome](url). 
+1. The paternal genome assembly can be downloaded at **[TODO: add link to paternal genome](url)**. 
 
-2. Male parent 291-10 was previously sequenced to high coverage. To generate a dataset of coverage equivalent to that obtained for the female parent and F1 progeny, we downsampled the original files (SRA #######) with seqtk as follows:
+2. Male parent 291-10 was previously sequenced to high coverage. To generate a dataset of coverage equivalent to that obtained for the female parent and F1 progeny, we downsampled the original files (**TODO: add link to SRA for paternal genome files**) with seqtk as follows:
 
    ```bash
    $ seqtk sample -s100 160429_CRATOS_HKM5MBCXX.1.12268798.1.fq.gz 0.2 | gzip > 160429_CRATOS_HKM5MBCXX.lane1.12268798.read1.DOWNSAMPLE_0.2.fq.gz
@@ -15,9 +16,9 @@ This document describes
    
    ```
 
-    The downsampled files can be downloaded from [Zenodo](www.zenodo.org). 
+    The downsampled files can be downloaded from Figshare at: **TODO: upload data and add link**
 
-3. Female parent 295-8 and F1 progeny were sequenced  as described in the paper. Sequences can be downloaded from the SRA at [XXXXXX](link)
+3. Female parent 295-8 and F1 progeny were sequenced  as described in the paper. Sequences can be downloaded from the SRA at **TODO: upload data and add link**
 
 
 
@@ -148,8 +149,7 @@ The resulting datafiles, `GATKBP-passed.maleHet.abxabRemoved.vcf` and `GATKBP-pa
 
 
 
-## Linkage Mapping
-
+## Generating a linkage maps of the maternal and paternal genomes
 
 
 #### Preparing data for OneMap
@@ -157,32 +157,45 @@ The resulting datafiles, `GATKBP-passed.maleHet.abxabRemoved.vcf` and `GATKBP-pa
 Prior to linkage mapping, the variants in each file were filtered to remove those that were distorted using the script [removedistorted.pl](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/removeDistorted.pl). The command used was:
 
 ```bash
-$ removeDistorted.pl --vcf GATKBP-passed.maleHet.abxabRemoved.vcf --parent1 PARENT_295_8 --parent2 WT --out-file GATKBP-passed.maleHet.abxabRemoved.nodist-p-00001.vcf --siglevel 0.00001 --bonf true
+$ removeDistorted.pl --vcf GATKBP-passed.maleHet.abxabRemoved.vcf \
+    --parent1 PARENT_295_8 \
+    --parent2 WT \
+    --out-file GATKBP-passed.maleHet.abxabRemoved.nodist-p-00001.vcf \
+    --siglevel 0.00001 \
+    --bonf true
 
-$ removeDistorted.pl --vcf GATKBP-passed.femaleHet.abxabRemoved.vcf --parent1 PARENT_295_8 --parent2 WT --out-file GATKBP-passed.femaleHet.abxabRemoved.nodist-p-00001.vcf --siglevel 0.00001 --bonf true
-
+$ removeDistorted.pl --vcf GATKBP-passed.femaleHet.abxabRemoved.vcf \
+    --parent1 PARENT_295_8 \
+    --parent2 WT \
+    --out-file GATKBP-passed.femaleHet.abxabRemoved.nodist-p-00001.vcf \
+    --siglevel 0.00001 \
+    --bonf true
 ```
 
 
 
 These were then thinned to 1 variant per 5 kb and converted from .vcf to OneMap's with vcftools and command line tools via [thin-for-onemap.v2.sh](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/thin-for-onemap.v2.sh).
 
-The resulting files were `femalePT.5kb.raw` and `malePT.5kb.raw`.  
+The resulting files were [femalePT.5kb.raw](url) and [malePT.5kb.raw](url) and are also provided as supplemental datasets in Chen et al. 
 
 
 
 #### Linkage mapping in OneMap
 
-R was run in R studio. Each linkage map (paternal and maternal) was created in a separate Rstudio project. 
+R was run in R studio. Each linkage map (paternal and maternal) was created in a separate Rstudio project:
+- fd
+- fdf
 
-To recreate the construction of the linkage maps, each project can be downloaded and the steps outlined in construct_initial_female_maps.r followed.
+A full description of the analysis is documented in the R script create_maps.r, which is provided in the project folder.
 
-Note that part of the analysis must be run with the perl script [identify_redundant_markers.pl](ref). 
-
+Note that part of the analysis must be run with the perl scripts [identify_redundant_markers.pl](ref), [unbin_markers_in_map.pl](ref), and [calculate_unbinned_map_statistics.pl](url). 
 
 
 ## QTL analysis
 
+Loci linked to sex were identified in R using R/qtl. The entire analysis can be recreated by downloading the Rstudio project.
+
+The input data file for 
 
 
 
