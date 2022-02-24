@@ -1,6 +1,6 @@
 ## Overview
 
-This document describes how we generated linkage maps of the _Hydractinia symbiolongicarpus_ genome and used them to identify sex-linked markers. It provides more detail, scripts, and large files that we could not include as supplemental data in the original publication.
+This document describes how we generated linkage maps of the _Hydractinia symbiolongicarpus_ genome and used them to identify sex-linked markers. It provides large files that we could not include as supplemental data in the original publication, along with scripts and some other details.
 
 In theory, you should be able to replicate our analysis perfectly. However, the details of running each analysis tool may differ depending on your platform and version. 
 
