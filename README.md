@@ -26,19 +26,31 @@ This document describes
 1. For each animal, including the parents, the Raw reads were mapped to an assembly of the paternal genome ([accession]()) with BWA-MEM with mapping parameters '-M -t 8'. The resulting .sam file was converted to .bam format  and then sorted with sam tools. An generic command is below:
 
    ```bash
-   $ bwa mem -M -t 8 genomeAssembly.fa.gz colonyXXX-fwdReads_R1_001.fastq.gz colonyXXX-revReads_R2_001.fastq.gz| samtools view -h -b - | samtools sort -m 6G -@ 4 > colonyXXX.sorted.bam
+   $ bwa mem -M -t 8 genomeAssembly.fa.gz colonyXXX-fwdReads_R1_001.fastq.gz colonyXXX-revReads_R2_001.fastq.gz \
+     | samtools view -h -b - \
+     | samtools sort -m 6G -@ 4 \
+     > colonyXXX.sorted.bam
    ```
 
 2. Use Picard to fix read groups
 
    ```bash
-   $ java -jar $PICARDJARPATH/picard.jar AddOrReplaceReadGroups I=colonyXXX.sorted.bam O= colonyXXX.sorted.rg.bam RGID=1 RGLB=1 RGPL=illumina RGPU=1 RGSM=colonyXXX.sorted.rg.bam
+   $ java -jar $PICARDJARPATH/picard.jar AddOrReplaceReadGroups \
+       I=colonyXXX.sorted.bam \
+       O= colonyXXX.sorted.rg.bam \
+       RGID=1 \
+       RGLB=1 \
+       RGPL=illumina \
+       RGPU=1 \
+       RGSM=colonyXXX.sorted.rg.bam
    ```
 
 3. Use Picard to mark duplicates
 
    ```bash
-   $ java -jar $PICARDJARPATH/picard.jar MarkDuplicates I=colonyXXX.sorted.rg.bam O=colonyXXX.sorted.rg.md.bam
+   $ java -jar $PICARDJARPATH/picard.jar MarkDuplicates \
+       I=colonyXXX.sorted.rg.bam \
+       O=colonyXXX.sorted.rg.md.bam
    ```
 
 
