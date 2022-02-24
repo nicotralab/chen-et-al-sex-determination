@@ -12,9 +12,11 @@ In theory, you should be able to replicate our analysis perfectly. However, the 
 2. Male parent 291-10 was previously sequenced to high coverage. To generate a dataset of coverage equivalent to that obtained for the female parent and F1 progeny, we downsampled the original files (**TODO: add link to SRA for paternal genome files**) with seqtk as follows:
 
    ```bash
-   $ seqtk sample -s100 160429_CRATOS_HKM5MBCXX.1.12268798.1.fq.gz 0.2 | gzip > 160429_CRATOS_HKM5MBCXX.lane1.12268798.read1.DOWNSAMPLE_0.2.fq.gz
+   $ seqtk sample -s100 160429_CRATOS_HKM5MBCXX.1.12268798.1.fq.gz 0.2 \
+       | gzip > 160429_CRATOS_HKM5MBCXX.lane1.12268798.read1.DOWNSAMPLE_0.2.fq.gz
    
-   $ seqtk sample -s100 160429_CRATOS_HKM5MBCXX.1.12268798.2.fq.gz 0.2 | gzip > 160429_CRATOS_HKM5MBCXX.lane1.12268798.read2.DOWNSAMPLE_0.2.fq.gz
+   $ seqtk sample -s100 160429_CRATOS_HKM5MBCXX.1.12268798.2.fq.gz 0.2 \
+       | gzip > 160429_CRATOS_HKM5MBCXX.lane1.12268798.read2.DOWNSAMPLE_0.2.fq.gz
    
    ```
 
@@ -29,10 +31,12 @@ In theory, you should be able to replicate our analysis perfectly. However, the 
 1. For each animal, including the parents, the Raw reads were mapped to an assembly of the paternal genome ([accession]()) with BWA-MEM with mapping parameters '-M -t 8'. The resulting .sam file was converted to .bam format  and then sorted with sam tools. An generic command is below:
 
    ```bash
-   $ bwa mem -M -t 8 genomeAssembly.fa.gz colonyXXX-fwdReads_R1_001.fastq.gz colonyXXX-revReads_R2_001.fastq.gz \
-     | samtools view -h -b - \
-     | samtools sort -m 6G -@ 4 \
-     > colonyXXX.sorted.bam
+   $ bwa mem -M -t 8 genomeAssembly.fa.gz \
+       colonyXXX-fwdReads_R1_001.fastq.gz \
+       colonyXXX-revReads_R2_001.fastq.gz \
+       | samtools view -h -b - \
+       | samtools sort -m 6G -@ 4 \
+       > colonyXXX.sorted.bam
    ```
 
 2. Use Picard to fix read groups
