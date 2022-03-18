@@ -1,8 +1,10 @@
 ## Overview
 
-This document describes how we generated linkage maps of the _Hydractinia symbiolongicarpus_ genome and used them to identify sex-linked markers. It provides large files that we could not include as supplemental data in the original publication, along with scripts and some other details.
+This repo accompanies "XY sex determination in a cnidarian" by Chen et al (**reference forthcoming**). The repo includes several custom scripts and intermediate data files not included in the manuscript. 
 
-In theory, you should be able to replicate our analysis perfectly. However, the details of running each analysis tool may differ depending on your platform and version. 
+This file outlines our workflow and provides links to a separarate repository at Zenodo (**reference forthcoming**), which has 6 datafiles that were too large to include in this repo.
+
+In theory, you should be able to follow this document to replicate our analysis perfectly. However, the details of running each analysis tool may differ depending on your platform and version. If you have questions or need help, please contact Matthew Nicotra. 
 
 
 ## Sequencing
