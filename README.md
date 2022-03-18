@@ -9,9 +9,9 @@ In theory, you should be able to follow this document to replicate our analysis 
 
 ## Sequencing
 
-1. The paternal genome assembly can be downloaded at **TODO: add link to paternal genome**. 
+1. The paternal genome assembly can be downloaded [here](https://research.nhgri.nih.gov/hydractinia/download/assembly/symbio/Hsym_primary_v1.0.fa.gz). 
 
-2. Male parent 291-10 was previously sequenced to high coverage. To generate a dataset of coverage equivalent to that obtained for the female parent and F1 progeny, we downsampled the original files (**TODO: add link to SRA for paternal genome files**) with seqtk as follows:
+2. Male parent 291-10 was previously sequenced to high coverage. To generate a dataset of coverage equivalent to that obtained for the female parent and F1 progeny, we downsampled the original files (available from BioProject PRJNA807936) with seqtk as follows:
 
    ```bash
    $ seqtk sample -s100 160429_CRATOS_HKM5MBCXX.1.12268798.1.fq.gz 0.2 \
@@ -22,15 +22,15 @@ In theory, you should be able to follow this document to replicate our analysis 
    
    ```
 
-    The downsampled files can be downloaded from **TODO: upload data and add link**
+    The downsampled files are available here: **To do - link to zenodo**
 
-3. Female parent 295-8 and F1 progeny were sequenced as described in the paper. Sequences can be downloaded from the SRA at **TODO: upload data and add link**
+3. Female parent 295-8 and F1 progeny were sequenced as described in the paper. Sequences are available at BioProject PRJNA816479
 
 
 
 ## Alignment of sequencing reads to the paternal genome
 
-1. For each animal, including the parents, the Raw reads were mapped to an assembly of the paternal genome ([accession]()) with BWA-MEM with mapping parameters '-M -t 8'. The resulting .sam file was converted to .bam format  and then sorted with sam tools. An generic command is below:
+1. For each animal, including both parents, the Raw reads were mapped to an assembly of the paternal genome with BWA-MEM with mapping parameters '-M -t 8'. The resulting .sam file was converted to .bam format  and then sorted with sam tools. An generic command is below:
 
    ```bash
    $ bwa mem -M -t 8 genomeAssembly.fa.gz \
