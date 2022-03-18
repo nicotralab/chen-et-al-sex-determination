@@ -2,7 +2,7 @@
 
 This repo accompanies "XY sex determination in a cnidarian" by Chen et al (**reference forthcoming**). The repo includes several custom scripts and intermediate data files not included in the manuscript. 
 
-This file outlines our workflow and provides links to a separarate repository at Zenodo (**reference forthcoming**), which has 6 datafiles that were too large to include in this repo.
+This file outlines our workflow and provides links to a [separarate repository](https://doi.org/10.5281/zenodo.6368104), which has 6 datafiles that were too large to include in this repo.
 
 In theory, you should be able to follow this document to replicate our analysis perfectly. However, the details of running each analysis tool may differ depending on your platform and version. If you have questions or need help, please contact Matthew Nicotra. 
 
@@ -22,7 +22,7 @@ In theory, you should be able to follow this document to replicate our analysis 
    
    ```
 
-    The downsampled files are available here: **To do - link to zenodo**
+    The downsampled files are available here: [Downsampled Paternal Sequences](https://doi.org/10.5281/zenodo.6368104)
 
 3. Female parent 295-8 and F1 progeny were sequenced as described in the paper. Sequences are available at BioProject PRJNA816479
 
@@ -111,7 +111,7 @@ In theory, you should be able to follow this document to replicate our analysis 
 
 
 
-5. File ```rawvariants.90f1.vcf``` contains genotypes for all samples, including both parents in .vcf format. This file can be downloaded from **TODO: upload file and provide link**. 
+5. File ```rawvariants.90f1.vcf``` contains genotypes for all samples, including both parents in .vcf format. This file can be downloaded [here](https://doi.org/10.5281/zenodo.6368104)
 
 
 
@@ -135,9 +135,7 @@ We first used a custom python script [qualityfilter.py](https://github.com/nicot
 
 After custom filtering, we filtered variants according to GATK best practices. The process is outlined in the bash script [filterbyGATKBP.sh](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/filterbyGATKBP.sh). 
 
-The output of this step is a file called ```GATKBP-passed.vcf```. It can be downloaded from **TODO: upload and add link**
-
-
+The output of this step is a file called ```GATKBP-passed.vcf```, which can be downloaded [here](https://doi.org/10.5281/zenodo.6368104)
 
 
 
