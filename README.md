@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/463199998.svg)](https://zenodo.org/badge/latestdoi/463199998)
+
+
 ## Overview
 
 This repo accompanies "XY sex determination in a cnidarian" by Chen et al (**reference forthcoming**). The repo includes several custom scripts and intermediate data files not included in the manuscript. 
