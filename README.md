@@ -151,7 +151,7 @@ Next, we extracted variants (SNPs and indels) from ```GATKBP-passed.vcf``` that 
 
 This was achieved with the bash script [getPTvariants.sh](https://github.com/nicotralab/chen-et-al-sex-determination/blob/main/getPTvariants.sh).
 
-The resulting datafiles, `GATKBP-passed.maleHet.abxabRemoved.vcf` and `GATKBP-passed.femaleHet.abxabRemoved.vcf` can be downloaded from **TODO upload file and provide link**
+The resulting datafiles, `GATKBP-passed.maleHet.abxabRemoved.vcf` and `GATKBP-passed.femaleHet.abxabRemoved.vcf` can be downloaded [here](https://doi.org/10.5281/zenodo.6368104)
 
 
 
@@ -200,8 +200,3 @@ Note that part of the analysis must be run with the perl scripts [identify_redun
 ## QTL analysis
 
 Loci linked to sex were identified in R using R/qtl. The entire analysis can be recreated by downloading the Rstudio project and following the R script `QTLanalysis_binaryTraits.R`
-
-
-
-
-
